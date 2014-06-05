@@ -5,7 +5,6 @@ var makeStack = function() {
   instanceOf.length = 0;
   instanceOf.storage = {};
 
-  console.log(instanceOf);
   return instanceOf;
 
 };

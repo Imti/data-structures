@@ -5,7 +5,6 @@ var makeStack = function() {
   instanceOf.storage = {};
 
   extend(instanceOf, stackMethods);
-  console.log(instanceOf);
   return instanceOf;
 
 };

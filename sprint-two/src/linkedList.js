@@ -17,9 +17,27 @@ var makeLinkedList = function(){
   };
 
   list.removeHead = function(){
+    if (list.tail !== null) { // not empty list
+      var result = list.head.value;
+      var temp = list.head.next;
+      delete list.head;
+      list.head = temp;
+      return result;
+    }
   };
 
   list.contains = function(target){
+    if (list.head.value === target){
+      return true;
+    }
+    while(list.head.next !== null){
+      if(list.head.next.value === target){
+        return true;
+      } else {
+        list.head.next = list.head.next.next;
+      }
+    }
+    return false;
   };
 
   return list;

@@ -24,4 +24,24 @@ describe('set', function() {
     expect(set.contains("Mel Gibson")).to.equal(false);
   });
 
+  it('should not include methods in the instance', function() {
+    expect(set.hasOwnProperty('add')).to.equal(false);
+    expect(set.hasOwnProperty('contains')).to.equal(false);
+    expect(set.hasOwnProperty('remove')).to.equal(false);
+  });
+
+  it('should be an object, not an array', function() {
+    expect(Array.isArray(set)).to.not.equal(true);
+    expect(typeof set).to.equal('object');
+  });
+
+  it('should not contain duplicates', function() {
+    set.add('4');
+    set.add('4');
+    set.remove('4');
+    expect(set.contains('4')).to.equal(false);
+  });
+
+
+
 });

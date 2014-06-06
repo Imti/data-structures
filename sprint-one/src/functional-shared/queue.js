@@ -4,6 +4,7 @@ var makeQueue = function(){
   var instanceOf = {};
   instanceOf.length = 0;
   instanceOf.storage = {};
+  instanceOf.head = 0;
   extend(instanceOf, queueMethods);
   return instanceOf;
 };
@@ -17,20 +18,16 @@ var extend = function(to, from){
 var queueMethods = {};
 
 queueMethods.enqueue = function(value){
-  this.storage[this.length] = value;
+  this.storage[this.length+this.head] = value;
   this.length++;
 };
 
 queueMethods.dequeue = function(){
   if (this.length > 0){
     this.length--;
-    var result = this.storage[0];
-    delete this.storage[0];
-    for (var key in this.storage){
-      var temp = this.storage[key];
-      key = parseInt(key) - 1;
-      this.storage[key] = temp;
-    }
+    var result = this.storage[this.head];
+    delete this.storage[this.head];
+    this.head++;
     return result;
   }
 };

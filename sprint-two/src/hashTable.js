@@ -19,9 +19,9 @@ HashTable.prototype.retrieve = function(k){
   var i = getIndexBelowMaxForKey(k, this._limit);
   var arr = this._storage.get(i);
   if (arr === null) return null;
-  for (var i = 0; i < arr[i].length; i++){
-    if (arr[i][0] === k){
-      return arr[i][1];
+  for (var j = 0; j < arr.length; j++){
+    if (arr[j][0] === k){
+      return arr[j][1];
     }
   }
   return false;
@@ -29,7 +29,12 @@ HashTable.prototype.retrieve = function(k){
 
 HashTable.prototype.remove = function(k){
   var i = getIndexBelowMaxForKey(k, this._limit);
-  this._storage.set(i, null);
+  var arr = this._storage.get(i);
+  for (var j = 0; j < arr.length; j++){
+    if (arr[j][0] ===  k){
+      arr[j][1] = null;
+    }
+  }
 };
 
 

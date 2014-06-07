@@ -2,13 +2,18 @@ describe('binarySearchTree', function() {
   var binarySearchTree;
 
   beforeEach(function() {
-    binarySearchTree = makeBinarySearchTree(5);
+    binarySearchTree = new makeBinarySearchTree(5);
   });
 
   it('should have methods named "insert", "contains", and "depthFirstLog', function() {
     expect(binarySearchTree.insert).to.be.a("function");
     expect(binarySearchTree.contains).to.be.a("function");
     expect(binarySearchTree.depthFirstLog).to.be.a("function");
+  });
+
+  it('should have properties named "left" and "right"', function() {
+    expect(typeof binarySearchTree.left).to.equal('number');
+    expect(typeof binarySearchTree.right).to.equal('number');
   });
 
   it('should insert values at the correct location in the tree', function(){

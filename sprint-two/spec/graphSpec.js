@@ -36,7 +36,7 @@ describe('graph', function() {
     graph.addNode('puppies');
     graph.addNode('kittens');
     graph.addNode('penguins', 'puppies');
-    expect(graph.getEdge('penguins', 'puppies')).to.equal(true);
+    expect(graph.getEdge('puppies', 'penguins')).to.equal(true);
     expect(graph.getEdge('penguins', 'kittens')).to.equal(false);
   });
 

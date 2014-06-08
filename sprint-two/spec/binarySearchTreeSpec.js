@@ -12,8 +12,8 @@ describe('binarySearchTree', function() {
   });
 
   it('should have properties named "left" and "right"', function() {
-    expect(typeof binarySearchTree.left).to.equal('number');
-    expect(typeof binarySearchTree.right).to.equal('number');
+    expect(typeof binarySearchTree.left).to.equal('object');
+    expect(typeof binarySearchTree.right).to.equal('object');
   });
 
   it('should insert values at the correct location in the tree', function(){
